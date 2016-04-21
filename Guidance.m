@@ -1,4 +1,4 @@
-function [ GuideSolution ] = GuidanceEP( NavSolution, StartX, StartY, DestX, DestY )
+function [ GuideSolution ] = Guidance( NavSolution, StartX, StartY, DestX, DestY )
 currentx = StartX;
 currenty = StartY;
 
@@ -14,8 +14,8 @@ while(CanMoveForward(direction,currentx,currenty,NavSolution))
       disp('out of spawn');
 end 
 %while loop for running untill you meet the destination (which should never happen)
-for i = 1:300
-    
+ for i = 1:300
+%while(~(currentx == DestX && currenty == DestY))
 if(ShouldMoveForward(direction,currentx,currenty,DestX,DestY) == true)
      if(CanMoveForward(direction,currentx,currenty,NavSolution) == true)
         [currentx, currenty] = MoveForward (direction, currentx, currenty);
